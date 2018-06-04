@@ -1,3 +1,9 @@
+# Project specific:
+imports/user_settings
+
+# emacs ignore files
+*.~
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
