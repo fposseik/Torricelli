@@ -1,0 +1,40 @@
+===== Verified crystallographic values  =====
+- 6H-SiC: Bauer et al. Phys. Rev. B 57, 2647 (1998)
+- Au:
+- Ag:
+- Cu:
+
+Those values were also successfully used for experiments.
+Lengths are given in pm, and angles in °.
+
+
+===== Non-verified crystallographic values  =====
+Data are compiled from different sources:
+- J. Solynom, Fundamental of the physics of solids, Vol. 1 - Structure and Dynamics, Springer-Verlag, Berlin (2007): See Table 7.2, p230.
+- W. G. Wyckoff, Crystal Structures, Vol. 1, 2nd Ed., R. E. Kreiger publishing company, Malabar Florida (1982)
+- http://mateck.com
+- http://materials.springer.com/periodictable
+- https://www.webelements.com
+
+===== DW  =====
+- 6H-SiC: Zywietz et al. Phys. Rev. B 54, 1791 (1996)
+- All cubic materials: Warren, X-ray diffraction, Addison-Wesley publishing company (1969)
+- Many elemental crystals: Gao et al. Acta Cryst. A55, 926 (1999)
+- Many elemental crystals: Sears et al. Acta Cryst. A47, 441 (1991)
+
+--> A reference value for Si at 293K: Flensburg et al. Phys. Rev. B 60, 284 (1999) --> B=0.4691+-0.0016 Ang**2 At (293K!)
+
+===== Lattices/AtomCoordinates_nnn.csv  =====
+- W. G. Wyckoff, Crystal Structures, Vol. 1, 2nd Ed., R. E. Kreiger publishing company, Malabar Florida (1982) --> faceCentered, baseCentered, diamond and HCP
+- http://materials.springer.com/periodictable --> rockSalt
+- Shaffer et al. Acta Cryst. B25, 477 (1969) --> HEX Wurtzite
+
+===== Atomic scattering factors  =====
+- Atomic scattering factors (f1 and f2): http://henke.lbl.gov/optical_constants/asf.html
+  (check for updates here: http://henke.lbl.gov/optical_constants/update.html)
+
+- Mean atomic scattering factors for free atoms / Atomic from factor (f0 in Ang-1)
+  International Tables for Crystallography Volume C: Mathematical, physical and chemical tables
+  First online edition (2006)   ISBN: 978-1-4020-1900-5   doi: 10.1107/97809553602060000103
+  Chap 6.1, Table 6.1.1.1.
+  Note that f0(0) = Z
