@@ -50,8 +50,6 @@ import lmfit
 # GUI and plotting
 import pyqtgraph as pg
 import pyqtgraph.exporters  # is not imported automatically with pyqtgraph in newer versions
-# from pyqtgraph.Qt import QtGui, QtCore
-# from PyQt4 import QtCore, QtGui
 from PyQt5 import QtCore
 from PyQt5.QtGui import QColor, QCursor, QFont, QIcon, QPixmap, QTextCursor
 from PyQt5.QtWidgets import (QAbstractItemView, QApplication, QColorDialog, QDialog,
@@ -75,7 +73,6 @@ import sip  # includes C++ libaries
 from operator import itemgetter
 import ast
 from ast import literal_eval
-#from __future__ import print_function # adds some python 3 features
 
 pg.setConfigOption('background', None)
 pg.setConfigOption('foreground', 'k')
@@ -454,6 +451,7 @@ class Torricelli(QMainWindow):
         text, _ = QFileDialog.getOpenFileName(
             self, "Open File", self.ui.LineEdit_CurrentWorkingDirectory.text(),
             "Reflectivity Files (*.refl);; All (*)")
+        text = QtCore.QDir.toNativeSeparators(text)
         if '' != text:
             self.ui.refl_name.setText(text)
             self.display_refl()
@@ -465,6 +463,7 @@ class Torricelli(QMainWindow):
         text, _ = QFileDialog.getOpenFileName(
             self, "Open File", self.ui.LineEdit_CurrentWorkingDirectory.text(),
             "Electron Yield Files (*.txt *.yield *.ey);; All (*)")
+        text = QtCore.QDir.toNativeSeparators(text)
         if '' != text:
             self.ui.ey_name.setText(text)
             self.display_ey()
@@ -474,6 +473,7 @@ class Torricelli(QMainWindow):
         text, _ = QFileDialog.getOpenFileName(
             self, "Open File", self.ui.LineEdit_CurrentWorkingDirectory.text(),
             "Angle Files (*.ang *.angle *.angles);; All (*)")
+        text = QtCore.QDir.toNativeSeparators(text)
         if '' != text:
             self.ui.lineEdit_angles_path.setText(text)
             self.display_angles()
@@ -2692,7 +2692,6 @@ class Torricelli(QMainWindow):
 
             # create or replace *.csv file and write data into it
             try:
-                print(saveFilePath)
                 with open(saveFilePath, 'w') as saveFile:
                     saveFile.writelines(comment_lines)
                     #CSVwriter = csv.DictWriter(saveFile, fieldnames=csvHeader, delimiter=';', quoting=csv.QUOTE_NONNUMERIC)
@@ -4160,14 +4159,14 @@ class Torricelli(QMainWindow):
             file_path, _ = newfile_dial.getSaveFileName(
                 self, "Open File",
                 self.ui.LineEdit_CurrentWorkingDirectory.text(),
-                "Torricelli summary file(*.csv)")
+                "Torricelli summary file (*.csv)")
         else:
             file_path = auto_save
         if '' != file_path:
             try:
                 # Make sure the possibly missing extension is added
-                path_without_ext, ext = os.path.splitext(str(file_path))
-                file_path = path_without_ext + '.csv'
+                # path_without_ext, ext = os.path.splitext(str(file_path))
+                # file_path = path_without_ext + '.csv'
 
                 if os.path.isfile(
                         file_path):  # backup version of the previous file.
@@ -4367,7 +4366,7 @@ class Torricelli(QMainWindow):
         path, lastFold = os.path.split(
             str(self.ui.LineEdit_CurrentWorkingDirectory.text()))
         path, lastButOneFold = os.path.split(path)
-        gp_name = lastButOneFold + '/' + lastFold + '_' + str(
+        gp_name = lastButOneFold + os.sep + lastFold + '_' + str(
             self.ui.column_name_label.text())
 
         # check if the group corresponding to this folder already exists, otherwise creates it
@@ -4398,7 +4397,6 @@ class Torricelli(QMainWindow):
             name_str = str(
                 self.ui.LineEdit_CurrentWorkingDirectory.text()).split(
                     os.sep)[-2]
-        print(name_str)
 
         dic.update({'Name'      : name_str,\
                     'Fc'        : self.ui.doubleSpinBox_EYFit_fc.value() if self.ui.doubleSpinBox_EYFit_fc.isEnabled() else self.ui.doubleSpinBox_fc.value(),\
