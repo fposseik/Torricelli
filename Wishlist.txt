@@ -1,0 +1,1 @@
+- In the Argand diagram list. Add the possibility to choose the group average to be only based on casaXPS errors, or only deviation from mean, or the biggest of the two (now only the 3rd option is available.)

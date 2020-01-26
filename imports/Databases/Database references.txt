@@ -15,6 +15,7 @@ Data are compiled from different sources:
 - http://mateck.com
 - http://materials.springer.com/periodictable
 - https://www.webelements.com
+- Bi2Se3: Nakajima, J. Phys. Chem. Solids, 24, 479 (1963)
 
 ===== DW  =====
 - 6H-SiC: Zywietz et al. Phys. Rev. B 54, 1791 (1996)
@@ -28,6 +29,7 @@ Data are compiled from different sources:
 - W. G. Wyckoff, Crystal Structures, Vol. 1, 2nd Ed., R. E. Kreiger publishing company, Malabar Florida (1982) --> faceCentered, baseCentered, diamond and HCP
 - http://materials.springer.com/periodictable --> rockSalt
 - Shaffer et al. Acta Cryst. B25, 477 (1969) --> HEX Wurtzite
+- Bi2Se3: Nakajima, J. Phys. Chem. Solids, 24, 479 (1963) +  Landolt-Börnstein, III C41
 
 ===== Atomic scattering factors  =====
 - Atomic scattering factors (f1 and f2): http://henke.lbl.gov/optical_constants/asf.html
