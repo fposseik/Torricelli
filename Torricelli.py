@@ -1,9 +1,10 @@
-#!/usr/bin/env python2
+# python3
 # -*- coding: utf-8 -*-
 
 #    Copyright © 2010 Giuseppe Mercurio
-#    Copyright © 2013-2018 Francois C. Bocquet
+#    Copyright © 2013-2020 Francois C. Bocquet
 #    Copyright © 2014-2018 Markus Franke
+#    Copyright © 2019 Xiaosheng Yang
 #    This file is part of Torricelli.
 #
 #    Torricelli is free software: you can redistribute it and/or modify
@@ -19,22 +20,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with Torricelli.  If not, see <http://www.gnu.org/licenses/>.
 
-# Use svn keyword to retrieve Revision number automatically on commit
-# The String between the $ will automatically be changed by SVN
-# Do not forget to activate the keyword for the file by for example
-# svn propset svn:keywords 'Id Revision LastChangedDate LastChangedBy' Torricelli.py
-# The following lines are edited automatically when a svn commit is done due to
-# the property settings!
-# DO NOT CHANGE THE FOLLOWING LINES, unless you know what you are doing
-__revision__ = ''.join(filter(lambda x: x.isdigit(), "$Revision: 483 $"))
-__modDate__ = "$LastChangedDate: 2018-04-25 16:38:24 +0200 (Mi, 25. Apr 2018) $"
-__modDate__ = __modDate__[49:61] + ' ' + __modDate__[
-    28:38] + 'GMT' + __modDate__[38:43]
-__changedBy__ = "$LastChangedBy: m.franke $".split(' ')[1]
-__svnID__ = "$Id: Torricelli.py 483 2018-04-25 14:38:24Z m.franke $"
-
-# insert version number here, if this is a full release
-__version__ = '3.9.' + __revision__
+__version__ = '4.0.beta'
 
 # scientific packages
 import scipy as sp
@@ -150,10 +136,6 @@ class Torricelli(QMainWindow):
         super(Torricelli, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.__version__ = __version__
-        self.__revision__ = __revision__
-        self.__modDate__ = __modDate__
-        self.__changedBy__ = __changedBy__
-        self.__svnID__ = __svnID__
 
         self.ui.setupUi(self)
         self.loadAll_csv_Files(
@@ -4920,17 +4902,11 @@ class Torricelli(QMainWindow):
 
     def addVersionToAbout(self):
         tmp_str = self.ui.textEdit_aboutTxt.toHtml()
-        str_Torricelli = "{id}  <b>v{version}</b> - last modified: <b>{date}</b> by <b>{author}</b><br>".format(
-            id=self.__svnID__.split(' ')[1],
-            version=self.__version__,
-            date=self.__modDate__,
-            author=self.__changedBy__)
-        str_pyArgand = "{id}    <b>v{version}</b> - last modified: <b>{date}</b> by <b>{author}</b><br>".format(
+        str_Torricelli = "Torricelli <b>v {version}</b><br>".format(version=self.__version__)
+        str_pyArgand = "{id} <b>v {version}</b><br>".format(
             id=self.argand.__svnID__.split(' ')[1],
-            version=self.argand.__version__,
-            date=self.argand.__modDate__,
-            author=self.argand.__changedBy__)
-        new_str = str_Torricelli + str_pyArgand + tmp_str
+            version=self.argand.__version__)
+        new_str = str_Torricelli + '\n' + str_pyArgand + tmp_str
         # Font settings
         font = QFont()
         font.setFamily("Courier New")

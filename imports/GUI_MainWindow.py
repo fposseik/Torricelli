@@ -2910,7 +2910,7 @@ class Ui_MainWindow(object):
         self.toolBox.setFont(font)
         self.toolBox.setObjectName("toolBox")
         self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 1192, 602))
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 1192, 587))
         self.page_3.setObjectName("page_3")
         self.horizontalLayout_25 = QtWidgets.QHBoxLayout(self.page_3)
         self.horizontalLayout_25.setObjectName("horizontalLayout_25")
@@ -2923,7 +2923,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_25.addItem(spacerItem19)
         self.toolBox.addItem(self.page_3, "")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 98, 93))
+        self.page.setGeometry(QtCore.QRect(0, 0, 1192, 587))
         self.page.setObjectName("page")
         self.verticalLayout_118 = QtWidgets.QVBoxLayout(self.page)
         self.verticalLayout_118.setObjectName("verticalLayout_118")
@@ -2933,7 +2933,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_118.addWidget(self.textEdit_aboutTxt)
         self.toolBox.addItem(self.page, "")
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setGeometry(QtCore.QRect(0, 0, 98, 93))
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 98, 88))
         self.page_2.setObjectName("page_2")
         self.horizontalLayout_77 = QtWidgets.QHBoxLayout(self.page_2)
         self.horizontalLayout_77.setObjectName("horizontalLayout_77")
@@ -2957,8 +2957,8 @@ class Ui_MainWindow(object):
         self.actionQuit.setObjectName("actionQuit")
 
         self.retranslateUi(MainWindow)
-        self.tab_Main.setCurrentIndex(3)
-        self.toolBox.setCurrentIndex(0)
+        self.tab_Main.setCurrentIndex(5)
+        self.toolBox.setCurrentIndex(1)
         self.toolBox.layout().setSpacing(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.pushButton_Argand_AddGroup, self.pushButton_Argand_Remove)
@@ -3229,12 +3229,13 @@ class Ui_MainWindow(object):
         self.textEdit_aboutTxt.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:12pt; font-weight:400; font-style:italic;\">\n"
+"</style></head><body style=\" font-family:\'Noto Sans\'; font-size:12pt; font-weight:400; font-style:italic;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">Torricelli is a software to analyze XSW (X-ray Standing Wave) data</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Sans Serif\'; font-style:normal;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    Copyright </span><span style=\" font-family:\'Sans Serif\'; font-style:normal;\">©</span><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\"> 2010-2013  Giuseppe Mercurio</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    Copyright </span><span style=\" font-family:\'Sans Serif\'; font-style:normal;\">©</span><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\"> 2013-2018  François C. Bocquet</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    Copyright </span><span style=\" font-family:\'Sans Serif\'; font-style:normal;\">©</span><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\"> 2013-2020  François C. Bocquet</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    Copyright </span><span style=\" font-family:\'Sans Serif\'; font-style:normal;\">©</span><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\"> 2014-2018  Markus Franke</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    Copyright </span><span style=\" font-family:\'Sans Serif\'; font-style:normal;\">©</span><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\"> 2019       Xiaosheng Yang</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Courier New,courier\'; font-style:normal;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    Torricelli is free software: you can redistribute it and/or modify</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    it under the terms of the GNU General Public License as published by</span></p>\n"
@@ -3250,12 +3251,12 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">    along with this program (see below).  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">Contact Information:<br />Peter Grünberg Institut (PGI-3)<br />Forschungszentrum Juelich GmbH<br />Leo Brandt Strasse, 52425 Juelich, Germany<br />www.fz-juelich.de</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">Tel.: +49 2461 61-3987<br />Fax.: +49 2461 61-3907</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">Email:<br />giuseppe.mercurio@desy.de<br />f.bocquet@fz-juelich.de<br />m.franke@fz-juelich.de</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-style:normal;\">Email:<br />giuseppe.mercurio@desy.de<br />f.bocquet@fz-juelich.de</span></p></body></html>"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("MainWindow", "About Torricelli"))
         self.textEdit_licenseTxt.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:12pt; font-weight:400; font-style:italic;\">\n"
+"</style></head><body style=\" font-family:\'Noto Sans\'; font-size:12pt; font-weight:400; font-style:italic;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-size:10pt; font-style:normal;\">                     GNU GENERAL PUBLIC LICENSE</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New,courier\'; font-size:10pt; font-style:normal;\">                       Version 3, 29 June 2007</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Courier New,courier\'; font-size:10pt; font-style:normal;\"><br /></p>\n"
