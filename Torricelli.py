@@ -54,7 +54,7 @@ import datetime
 import glob  # for fancy pathname handeling
 
 # miscellaneous
-from distutils.version import LooseVersion, StrictVersion
+from distutils.version import StrictVersion
 import sip  # includes C++ libaries
 from operator import itemgetter
 import ast
@@ -382,48 +382,8 @@ class Torricelli(QMainWindow):
             )
 
         if the_plot is not None:
-            try:
-                if LooseVersion(pg.__version__) < LooseVersion('0.9.9'):
-                    exporter = pyqtgraph.exporters.ImageExporter.ImageExporter(
-                        the_plot.plotItem)
-                else:
-                    exporter = pyqtgraph.exporters.ImageExporter(
-                        the_plot.plotItem)
-            except (ValueError, AttributeError, TypeError) as err:
-                if type(err).__name__ == "ValueError":
-                    print("\nCould not read the version of pyqtgraph!")
-                    print(
-                        "\n\nWARNING: There was an error exporting the fits as png images!\n"
-                        "Image export will not work, but you can go on using torricelli.\n"
-                        "This error can occur due an incompatible pyqtgraph version."
-                    )
-                elif type(err).__name__ == "AttributeError":
-                    print(str(err) + '\n')
-                    print((
-                        "\nTry using a newer version of pyqtgraph or pyqtgraph 0.9.10\n"
-                        "you are using version: " + pg.__version__ + "\n"))
-                elif type(
-                        err
-                ).__name__ == "TypeError":  # and str(err) == "'float' object cannot be interpreted as an index":
-                    errMsg = """<font face=courier><b>line 70, in export<br>"""+\
-                    """bg = np.empty((self.params['width'], self.params['height'], 4), dtype=np.ubyte)<br>"""+\
-                    """TypeError: 'float' object cannot be interpreted as an index</b></font>"""
-
-                    QMessageBox.warning(self, "Warning", "<b>There is a bug in the particular version of pyqtgraph you are using!</b> "+\
-                    "If you get an error message after this warning similar to: <br><br>"+errMsg+"<br><br>Then there are two possiblities what you can do.<br>"+\
-                    "Easiest way is to use just another version of pyqtgraph. v0.9.10 for example. However sometimes the error seems to occur there, too."+\
-                    "Other possibility: You can implement a workaround and edit the file ImageExporter.py from the pyqtgraph module. To do so change the following in the file:<br><br>"+\
-                    """Change the following line:<br><br>"""+\
-                    """<font face=courier><b>bg = np.empty((self.params['width'], self.params['height'], 4), dtype=np.ubyte)</b></font><br>"""+\
-                    """<br>to:<br><br>"""+\
-                    """<font face=courier><b>bg = np.empty((int(self.params['width']), int(self.params['height']),4), dtype=np.ubyte)</b></font>"""+\
-                    """<br><br><b>NOTE:</b> This is not a bug in Torricelli. You have to edit the ImageExporter.py file of the pyqtgraph package itsef!"""+\
-                    """After upgrading or reinstalling pyqtgraph this modification can be overwritten and you can get the error again.""")
-                    print("TypeError: " + str(err))
-
-            else:
-                exporter.parameters()['background'] = (0, 0, 0, 0)
-                exporter.export(file_name + '.png')
+            exporter = pyqtgraph.exporters.ImageExporter(
+                the_plot.plotItem)
 
     ################################################
     ########     Section Import Files       ########
@@ -2305,48 +2265,6 @@ class Torricelli(QMainWindow):
             )
             raise IOError('Problem with the EY fit log file')
 
-        # Check lmfit version (should be v0.9.0 or newer)
-        # -----------------------------------------------------------------------------
-        # since lmfit v0.9.0 the input parameter object is not updated during fitting.
-        # This is to contain the initial parameters.
-        # To get the fit result one HAS TO adress the MinimizerResult object,
-        # which is the return value of lmfit.minimize()
-        try:
-            if StrictVersion(lmfit.__version__) < StrictVersion('0.8.3'):
-                print(
-                    "\nERROR: Your lmfit version is deprecated! You have lmfit v"
-                    + lmfit.__version__ +
-                    "\nPlease install at least lmfit v0.9.0\nUse the command \'pip install lmfit --upgrade\' in your console."
-                )
-                QMessageBox.warning(
-                    self, "ERROR",
-                    "Your lmfit version is deprecated! You have lmfit v" +
-                    lmfit.__version__ +
-                    "\nPlease install at least lmfit v0.9.0\nUse the command \'pip install lmfit --upgrade\' in your console."
-                )
-                return
-            elif StrictVersion(lmfit.__version__) < StrictVersion('0.9.0'):
-                print((
-                    "\nWARNING: Your lmfit version is deprecated! You have lmfit v"
-                    + lmfit.__version__ +
-                    "\nTorricelli will work, but consider to update lmfit at least to v0.9.0\nto ensure compatibility with newer Torricelli versions."
-                    +
-                    "\nUse the command \'pip install lmfit --upgrade\' in your console.\n"
-                ))
-        except (ValueError, AttributeError) as err:
-            print("Version error: ", err)
-            print(
-                "\nERROR: There was an error regarding the lmfit package that is used to fit the yield curves!"
-            )
-            if type(err).__name__ == "ValueError":
-                print("\nCould not read the version of lmfit!")
-            if not type(err).__name__ == "ValueError":
-                print(
-                    ("\nTry using lmfit v0.9.2" + "\nYou are using version: " +
-                     lmfit.__version__ +
-                     "\nTo uninstall and install a specific version type:" +
-                     "\n\'pip uninstall lmfit\'\n\'pip install lmfit==0.9.2\'"))
-            return
 
         self.write_line_EY_log_file(
             "All the fit parameters combinations tested are reported in the following:"
