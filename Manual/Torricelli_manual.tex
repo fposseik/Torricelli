@@ -42,7 +42,7 @@
 \newcommand{\fileTorri}[1]{{\fontsize{9}{0}\selectfont\faFileO\hspace{1px}\includegraphics{img/Torricelli_icon.png}}$\,${\fontsize{7}{0}\selectfont\faCaretRight}\directory{#1}}
 \newcommand{\fileData}[1]{{\fontsize{9}{0}\selectfont\faFileO$\mathcal{D}$}$\,${\fontsize{7}{0}\selectfont\faCaretRight}\directory{#1}}
 
-\title{\textsc{Torricelli}: A software to determine atomic spatial distribution from normal incidence x-ray standing wave data\\  {\large -- \emph{Manual of version 3.8} --\\ \vspace{.5cm} \begin{framed} See Ref.~\cite{Bocquet2018} for a review of the used theory and approximations.\\  \vspace{.5cm} The latest updates are available on \textcolor{blue}{\href{www.torricelli-software.com}{www.torricelli-software.com}}. \end{framed}}}
+\title{\textsc{Torricelli}: A software to determine atomic spatial distribution from normal incidence x-ray standing wave data\\  {\large -- \emph{Manual of version 4.0.beta} --\\ \vspace{.5cm} \begin{framed} See Ref.~\cite{Bocquet2018} for a review of the used theory and approximations.\\  \vspace{.5cm} The latest updates are available on \textcolor{blue}{\href{www.torricelli-software.com}{www.torricelli-software.com}}. \end{framed}}}
 \author{\vspace{5cm}F. C. Bocquet, G. Mercurio and M. Franke}
 \date{\today}
 
@@ -72,47 +72,31 @@ We would like to thank particularly Tien-Lin Lee for discussing the fitting equa
 \chapter{Getting started}
 \chaptermark{Getting started} % for the header
 \section{Installation} %%%*********************************%%%
-\textsc{Torricelli} is an interpreted program. That means first you need to install Python and a few modules in order to be able to launch \textsc{Torricelli} (which itself does not require any installation). \textsc{Torricelli} was programmed in \texttt{Python2.7} and \texttt{PyQt4}. Compatibility to \texttt{Python3} and/or \texttt{PyQt5} is not supported at the moment. If you already have a scientific \texttt{Python2.7} installation, you can test your installation by trying to import the following packages in a python console:
+\textsc{Torricelli} is an interpreted program. That means first you need to install Python and a few modules in order to be able to launch \textsc{Torricelli} (which itself does not require any installation). \textsc{Torricelli} was programmed in \texttt{Python3} with \texttt{PyQt5}. 
 
-\begin{verbatim}
->>> import scipy, numpy, cmath, lmfit
->>> import pyqtgraph
->>> from pyqtgraph.Qt import QtGui, QtCore
->>> from PyQt4.QtCore import pyqtSignal, pyqtSlot
->>> from PyQt4 import QtCore, QtGui
->>> import ConfigParser, csv, sip, colorsys
->>> import sys, string, os, datetime, glob, ast
->>> from distutils.version import StrictVersion
->>> from operator import itemgetter
-\end{verbatim}
-
-That will load one by one all the necessary modules required by \textsc{Torricelli}. \emph{None} of these lines should return \emph{any} error message. If it does, that means there are missing packages that should be installed, as explained in the following. You may see a 'FutureWarning' message depending on the version you use. Also there is a small bug in one of the packages that is needed to run Torricelli. There is a workaround explained after the installation instructions.
-
-\subsection{Linux}
-Simply install the following packages with your preferred package manager: \verb+Pyhton2.7+,  \verb+PyQt4+,  \verb+pyqtgraph+, \verb+numpy+, \verb+scipy+, and \verb+lmfit+
-
-\paragraph{Note} Once \verb+Pyhton2.7+ is installed, you can also use \verb+pip+ to install the rest (useful to get the latest \verb+pyqtgraph+ version on some distributions). 
-
-\subsection{Windows}
-We recommend to install the package manager \verb+Miniconda+  for \verb+Python 2.7+ (\href{https://conda.io/miniconda.html}{https://conda.io/miniconda.html}). During the installation, check the box \emph{add Anaconda to the PATH} (if not, you will have to use the anaconda prompt for Torricelli, which is fine but less practical). After installation, execute the following commands:
+\subsection{Linux, MacOS and Windows}
+We recommend to install the package manager \verb+Miniconda+  for \verb+Python 3+ (\href{https://conda.io/miniconda.html}{https://conda.io/miniconda.html}). During the installation, check the box \emph{add Anaconda to the PATH} (if not, you will have to use the anaconda prompt for Torricelli, which is fine but less practical). After installation, execute the following command in the conda console:
 \begin{itemize}
-\item \texttt{conda install pyqt=4 numpy scipy}
-\item \texttt{pip install lmfit pyqtgraph}
+\item \texttt{conda install pyqt=5 numpy scipy h5py}
+%\item \texttt{pip install lmfit pyqtgraph}
 \end{itemize}
 
-\subsection{Mac}
-We recommand to install the package manager \texttt{Homebrew} (\href{https://brew.sh}{https://brew.sh}). After installation, execute the following commands in a console:
+Finally you need to install the latest development version (the current pyqtgraph release is old and has several bugs). Download pyqtgraph-develop.zip from \href{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip}{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip} and  upzip the file to some temporary folder. Change directory to the unzipped pyqtgraph-develop folder with the \texttt{cd} command and execute \texttt{python setup.py install}. If errors occur:
+\begin{itemize}
+\item check your pyqtgraph version in conda installation, execute \texttt{conda list}
+\item remove the current pyqtgraph version: if you see "pypi" in the line of "pyqtgraph" then run \texttt{pip uninstall pyqtgraph}, otherwise run \texttt{conda uninstall pyqtgraph}
+\item run \texttt{conda list} again to confirm that pyqtgraph is removed
+\item repeat the installing steps above
+\end{itemize}
+
+
+\subsection{Alternative for MacOS}
+Install the package manager \texttt{Homebrew} (\href{https://brew.sh}{https://brew.sh}). After installation, execute the following commands in a console:
 \begin{itemize}
 \item \texttt{brew install python}
 \item \texttt{sudo easy\_install pip} (may not be necessary with the latest homebrew version)
-\item \texttt{pip install pyqt numpy scipy lmfit pyqtgraph}
+%\item \texttt{pip install pyqt numpy scipy lmfit pyqtgraph}
 \end{itemize}
-
-\paragraph{Small bug} There is a tiny bug in the latest version of pyqtgraph (0.10.0). The problematic line number and file name will display in the console (\texttt{ImageExporter.py} at line 70) when you use Torricelli. A couple of \textcolor{red}{\textttt{\bf int()}} must be added:\\
-\verb+bg = np.empty((+\textcolor{red}{\textttt{\bf int(}}\verb+self.params['width']+\textcolor{red}{\textttt{\bf )}},\\
-\verb+               + \textcolor{red}{\textttt{\bf int(}}\verb+self.params['height']+\textcolor{red}{\textttt{\bf )}}\verb+, 4), dtype=np.ubyte)+\\
-You will find the file in the directory \verb+...\pyqtgraph\exporters+ in your site-packages directory. If you do not know where your site-package folder is, type\\
-\verb+import site; site.getsitepackages()+ in the python console and it will be displayed.
 
 \subsection{Upgrading packages}
 To upgrade any of the packages, one can simply run the following command:
@@ -372,12 +356,12 @@ The level of approximation to be used to treat the photoemission process can be 
   \label{fig:NIST}
 \end{figure}
 
-Press the \keys{Fit yield} button (16). If the fit converges, the normalized experimental data together with the fitting theoretical curve are displayed as blue points and line (22), respectively. The normalized statistical error are displayed as vertical red bars. Nonphysical negative or greater than unity $\underline{F_\mathrm{c}}$ or $\underline{P_\mathrm{c}}$ can still produce a very good fit. To overcome this, one has to set better initial values. After having fitted once, it is possible to display the theoretical curve with initial values in red (17). The initial values can be changed by typing the value (10), or by moving the cursor (11). The red curve in (22) will instantly update. Press the \keys{Fit yield} button (16) again once the initial values are set. The fit results together with their standard deviation (12) are displayed, as well as the coefficient of determination $R^2$ (see Chap.~\ref{chap:FitRefl}) and the $\chi_\mathr{red}^2$. Also, each step of the optimization are displayed in (21), as well as further fit results details. All fit result values are displayed in blue. It is possible to fit the $\underline{\gamma}$ (or $\underline{S_R}$) if your sample is completely disordered and you are confident to fix $F_\mathrm{c}$ to 0.
+Press the \keys{Fit yield} button (16). If the fit converges, the normalized experimental data together with the fitting theoretical curve are displayed as blue points and line (22), respectively. The normalized statistical error are displayed as vertical red bars. Nonphysical negative or greater than unity $\underline{F_\mathrm{c}}$ or $\underline{P_\mathrm{c}}$ can still produce a very good fit. To overcome this, one has to set better initial values. After having fitted once, it is possible to display the theoretical curve with initial values in red (17). The initial values can be changed by typing the value (10), or by moving the cursor (11). The red curve in (22) will instantly update. Press the \keys{Fit yield} button (16) again once the initial values are set. The fit results together with their standard deviation (12) are displayed, as well as the coefficient of determination $R^2$ (see Chap.~\ref{chap:FitRefl}) and the $\chi_\mathrm{red}^2$. Also, each step of the optimization are displayed in (21), as well as further fit results details. All fit result values are displayed in blue. It is possible to fit the $\underline{\gamma}$ (or $\underline{S_R}$) if your sample is completely disordered and you are confident to fix $F_\mathrm{c}$ to 0.
 
 Once satisfied with the fit results, click on \keys{Save and plot in Argand} (19) to store the results (including the standard deviations and all other relevant parameters) in a list of all gathered results (See Chap.~\ref{chap:Argand}).
 
 
-\paragraph{Note} The Monte-Carlo analysis in CasaXPS is usually slow. If you are in a hurry (during a beam-time), you may want to avoid this step and tell \textsc{Torricelli} not to read in the error bars and click \keys{Ignore Monte Carlo analysis} (15). This will remove the error bar weight on the data points, by effectively setting $\sigma_{Y^\mathrm{exp}_\mathscr{S}}(h\nu, \phi)=\underline{N_Y^\mathscr{S}}$. As a consequence, the error bars given by the fit procedure are not defined anymore and should not be used. Also, $\chi_\mathr{red}^2$ is not defined anymore.
+\paragraph{Note} The Monte-Carlo analysis in CasaXPS is usually slow. If you are in a hurry (during a beam-time), you may want to avoid this step and tell \textsc{Torricelli} not to read in the error bars and click \keys{Ignore Monte Carlo analysis} (15). This will remove the error bar weight on the data points, by effectively setting $\sigma_{Y^\mathrm{exp}_\mathscr{S}}(h\nu, \phi)=\underline{N_Y^\mathscr{S}}$. As a consequence, the error bars given by the fit procedure are not defined anymore and should not be used. Also, $\chi_\mathrm{red}^2$ is not defined anymore.
 
 \paragraph{Auto-save} In the \dirData{results} folder, pictures, normalized experimental data, fitted theoretical data as well as fit results are saved/updated automatically each time the \keys{Fit Yield} button is pressed. The created \texttt{RESULTS\_*.csv} file, that summarize the fit results and all used parameters, can be easily loaded by another program to consult the data.
 
