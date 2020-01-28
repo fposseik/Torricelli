@@ -3,7 +3,7 @@ A software to determine atomic spatial distribution from normal incidence x-ray 
 
 ### Files and folders:
 
-* **Torricelli.py**: The main program written in Python 2.7
+* **Torricelli.py**: The main program written in Python 3.7
 * **Example data sets/**: Folder containing few data set to try Torricelli out
 * **imports/**: All necessary files needed to run Torricelli (GUI as well as databases)
 * **LICENSE**: A copy of the GNU General Public License
