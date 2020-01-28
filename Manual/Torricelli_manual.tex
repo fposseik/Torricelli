@@ -75,19 +75,21 @@ We would like to thank particularly Tien-Lin Lee for discussing the fitting equa
 \textsc{Torricelli} is an interpreted program. That means first you need to install Python and a few modules in order to be able to launch \textsc{Torricelli} (which itself does not require any installation). \textsc{Torricelli} was programmed in \texttt{Python3} with \texttt{PyQt5}. 
 
 \subsection{Linux, MacOS and Windows}
-We recommend to install the package manager \verb+Miniconda+  for \verb+Python 3+ (\href{https://conda.io/miniconda.html}{https://conda.io/miniconda.html}). During the installation, check the box \emph{add Anaconda to the PATH} (if not, you will have to use the anaconda prompt for Torricelli, which is fine but less practical). After installation, execute the following command in the conda console:
+We recommend to install the package manager \verb+Miniconda+  for \verb+Python 3.7+ (\href{https://conda.io/miniconda.html}{https://conda.io/miniconda.html}) \emph{Note that \texttt{Python 3.8} does not work for now}. During the installation, check the box \emph{add Anaconda to the PATH} (if not, you will have to use the anaconda prompt for Torricelli, which is fine but less practical). After installation, execute the following command in the conda console:
 \begin{itemize}
-\item \texttt{conda install pyqt=5 numpy scipy h5py}
-%\item \texttt{pip install lmfit pyqtgraph}
+\item \texttt{conda create --name p37 python=3.7} (optional)
+\item \texttt{conda activate p37} (optional)
+\item \texttt{conda install pyqt numpy scipy h5py}
+\item \texttt{pip install lmfit pyqtgraph}
 \end{itemize}
 
-Finally you need to install the latest development version (the current pyqtgraph release is old and has several bugs). Download pyqtgraph-develop.zip from \href{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip}{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip} and  upzip the file to some temporary folder. Change directory to the unzipped pyqtgraph-develop folder with the \texttt{cd} command and execute \texttt{python setup.py install}. If errors occur:
-\begin{itemize}
-\item check your pyqtgraph version in conda installation, execute \texttt{conda list}
-\item remove the current pyqtgraph version: if you see "pypi" in the line of "pyqtgraph" then run \texttt{pip uninstall pyqtgraph}, otherwise run \texttt{conda uninstall pyqtgraph}
-\item run \texttt{conda list} again to confirm that pyqtgraph is removed
-\item repeat the installing steps above
-\end{itemize}
+%Finally you need to install the latest development version (the current pyqtgraph release is old and has several bugs). Download pyqtgraph-develop.zip from \href{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip}{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip} and  upzip the file to some temporary folder. Change directory to the unzipped pyqtgraph-develop folder with the \texttt{cd} command and execute \texttt{python setup.py install}. If errors occur:
+%\begin{itemize}
+%\item check your pyqtgraph version in conda installation, execute \texttt{conda list}
+%\item remove the current pyqtgraph version: if you see "pypi" in the line of "pyqtgraph" then run \texttt{pip uninstall pyqtgraph}, otherwise run \texttt{conda uninstall pyqtgraph}
+%\item run \texttt{conda list} again to confirm that pyqtgraph is removed
+%\item repeat the installing steps above
+%\end{itemize}
 
 
 \subsection{Alternative for MacOS}
@@ -100,7 +102,7 @@ Install the package manager \texttt{Homebrew} (\href{https://brew.sh}{https://br
 
 \subsection{Upgrading packages}
 To upgrade any of the packages, one can simply run the following command:
-\verb+conda update <package_name>+\\
+\verb+conda upgrade <package_name>+\\
 or\\
 \verb+pip install <package_name> -U+\\
 depending on how you installed the package.
