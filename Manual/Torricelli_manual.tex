@@ -83,23 +83,6 @@ We recommend to install the package manager \verb+Miniconda+  for \verb+Python 3
 \item \texttt{pip install lmfit pyqtgraph}
 \end{itemize}
 
-%Finally you need to install the latest development version (the current pyqtgraph release is old and has several bugs). Download pyqtgraph-develop.zip from \href{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip}{https://github.com/pyqtgraph/pyqtgraph/archive/develop.zip} and  upzip the file to some temporary folder. Change directory to the unzipped pyqtgraph-develop folder with the \texttt{cd} command and execute \texttt{python setup.py install}. If errors occur:
-%\begin{itemize}
-%\item check your pyqtgraph version in conda installation, execute \texttt{conda list}
-%\item remove the current pyqtgraph version: if you see "pypi" in the line of "pyqtgraph" then run \texttt{pip uninstall pyqtgraph}, otherwise run \texttt{conda uninstall pyqtgraph}
-%\item run \texttt{conda list} again to confirm that pyqtgraph is removed
-%\item repeat the installing steps above
-%\end{itemize}
-
-
-\subsection{Alternative for MacOS}
-Install the package manager \texttt{Homebrew} (\href{https://brew.sh}{https://brew.sh}). After installation, execute the following commands in a console:
-\begin{itemize}
-\item \texttt{brew install python}
-\item \texttt{sudo easy\_install pip} (may not be necessary with the latest homebrew version)
-%\item \texttt{pip install pyqt numpy scipy lmfit pyqtgraph}
-\end{itemize}
-
 \subsection{Upgrading packages}
 To upgrade any of the packages, one can simply run the following command:
 \verb+conda upgrade <package_name>+\\

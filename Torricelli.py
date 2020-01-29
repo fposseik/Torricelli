@@ -1076,7 +1076,7 @@ class Torricelli(QMainWindow):
         gamma_cr = (sp.constants.value('classical electron radius') * 1e10 *
                     lambda_bragg**2) / (
                         sp.pi * vol_unit_cell)
-        theta_bragg_mo = sp.arcsin(lambda_bragg / (2 * d_hkl_DCM))
+        theta_bragg_mo = np.lib.scimath.arcsin(lambda_bragg / (2 * d_hkl_DCM))
         gamma_mo = (sp.constants.value('classical electron radius') * 1e10 *
                     lambda_bragg**2) / (
                         sp.pi * vol_unit_cell_DCM)
