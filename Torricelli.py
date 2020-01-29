@@ -4057,7 +4057,7 @@ class Torricelli(QMainWindow):
             newfile_dial = QFileDialog()
             newfile_dial.setDefaultSuffix('.csv')
             file_path, _ = newfile_dial.getSaveFileName(
-                self, "Open File",
+                self, "Save File",
                 self.ui.LineEdit_CurrentWorkingDirectory.text(),
                 "Torricelli summary file (*.csv)")
         else:
