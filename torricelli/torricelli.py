@@ -20,6 +20,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with Torricelli.  If not, see <http://www.gnu.org/licenses/>.
 
+# https://setuptools.readthedocs.io/en/latest/setuptools.html#specifying-your-project-s-version
 __version__ = '4.0rc0'
 
 # scientific packages
