@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="torricelli-fposseikk", # Replace with your own username
-    version="4.0.1",
+    name="torricelli-fposseikkd", # Replace with your own username
+    version="4.0.1d",
     author="Example Author",
     author_email="f.posseik@fz-juelich.de",
     maintainer="Francois C. Bocquet",
