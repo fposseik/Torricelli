@@ -20,8 +20,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with Torricelli.  If not, see <http://www.gnu.org/licenses/>.
 
-# https://setuptools.readthedocs.io/en/latest/setuptools.html#specifying-your-project-s-version
-__version__ = '4.0rc0'
+__version__ = '4.0.beta'
 
 # scientific packages
 import scipy as sp
@@ -1077,7 +1076,7 @@ class Torricelli(QMainWindow):
         gamma_cr = (sp.constants.value('classical electron radius') * 1e10 *
                     lambda_bragg**2) / (
                         sp.pi * vol_unit_cell)
-        theta_bragg_mo = sp.arcsin(lambda_bragg / (2 * d_hkl_DCM))
+        theta_bragg_mo = np.lib.scimath.arcsin(lambda_bragg / (2 * d_hkl_DCM))
         gamma_mo = (sp.constants.value('classical electron radius') * 1e10 *
                     lambda_bragg**2) / (
                         sp.pi * vol_unit_cell_DCM)
@@ -4058,7 +4057,7 @@ class Torricelli(QMainWindow):
             newfile_dial = QFileDialog()
             newfile_dial.setDefaultSuffix('.csv')
             file_path, _ = newfile_dial.getSaveFileName(
-                self, "Open File",
+                self, "Save File",
                 self.ui.LineEdit_CurrentWorkingDirectory.text(),
                 "Torricelli summary file (*.csv)")
         else:
