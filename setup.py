@@ -13,14 +13,15 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/fposseik/Torricelli",
-    packages=["torricelli"],
+    packages=['', "torricelli"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='~=3.7',
     package_data={
+        "" : ['*.py'],
         "torricelli": ['*.py',
                        "imports/*.py", "imports/*.png",
                        "imports/Databases/*.txt", 'imports/Databases/*.csv', 'imports/Databases/*.ini',
