@@ -79,8 +79,8 @@ We recommend to install the package manager \verb+Miniconda+  for \verb+Python 3
 \begin{itemize}
 \item \texttt{conda create --name p37 python=3.7} (optional)
 \item \texttt{conda activate p37} (optional)
-\item \texttt{conda install pyqt numpy scipy h5py}
-\item \texttt{pip install lmfit pyqtgraph}
+\item \texttt{conda install pyqt }
+\item \texttt{pip install torricelli}
 \end{itemize}
 
 \subsection{Upgrading packages}
@@ -90,6 +90,8 @@ or\\
 \verb+pip install <package_name> -U+\\
 depending on how you installed the package.
 
+\subsection{Exporting the content of a plot}
+At the moment, pyqtgraph 0.10 has a bug while exporting. If you want to export plots, upgrade it to the latest. At the moment \texttt{pip install -U pyqtgraph==0.11.0rc0}.
 
 
 \section{Conventions used in this manual}
@@ -103,12 +105,10 @@ depending on how you installed the package.
 
 \section{Launching \textsc{Torricelli}} %%%*********************************%%%
 
-There are several possibilities to  start \textsc{Torricelli}.
-\begin{itemize}
-\item[\textcolor{green}{$\bullet$}] We recommend to open a console, change directory (command \texttt{cd} on Linux, Mac and Windows) to the program folder (\dirTorri{}) and execute \verb+python Torricelli.py+.
-\item[\textcolor{green}{$\bullet$}] One also can double click on the file \fileTorri{\textsc{Torricelli}.py} if it is executable on your system. 
-\item[\textcolor{red}{$\bullet$}] Do not start \textsc{Torricelli} from an interactive python shell.
-\end{itemize}
+Start \textsc{Torricelli} (in the appropriate conda environment) with:\\
+
+\texttt{python3 -m Torricelli}\\
+
 Before starting an analysis, one must first define the directory that contains your experimental files (\dirData{}) (1), by clicking on the \keys{...} button (2). In this folder, a \dirData{results/} sub-folder is created and will contain all results (as ASCII files and pictures).
 
 \begin{figure}[!h]
