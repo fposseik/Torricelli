@@ -20,11 +20,11 @@ $ python3 -m Torricelli
 
 ========== Then publish your release ! ==========
 Repeat steps 1. to 3.
-7. $ python3 -m twine upload dist/*
-8. Use a nice conda env
-9. $ python3 -m pip install torricelli
-10. Enjoy:
-$ python3 -m Torricelli
+7. Make sure the version number in setup.py and Torricelli/torricelli.py are the same!
+8. $ python3 -m twine upload dist/*
+9. Use a nice conda env
+10. $ python3 -m pip install torricelli
+11. Enjoy: $ python3 -m Torricelli
 _________________________________________________________-
 Useful links:
 https://packaging.python.org/tutorials/packaging-projects/
