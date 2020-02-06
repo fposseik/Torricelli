@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="torricelli-fposseikkd", # Replace with your own username
-    version="4.0.1d",
+    version="4.0.1",
     author="Example Author",
     author_email="f.posseik@fz-juelich.de",
     maintainer="Francois C. Bocquet",
