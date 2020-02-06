@@ -1,0 +1,31 @@
+========== first test with test.pypi ==========
+
+1. From Torricelli/ remove all folders:
+dist/ built/ *.egg-info/
+
+2. Make sure you use either a different name or version in setup.py in order to retry again and again.
+
+3. In the folder with setup.py file:
+$ python3 setup.py sdist bdist_wheel
+
+4. Then:
+$ python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+5. Use the conda env you like. Install first all dependencies. Then:
+$ python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps torricelli-fposseikksddoo
+
+6. Enjoy:
+$ python3 -m Torricelli
+
+
+========== Then publish your release ! ==========
+Repeat steps 1. to 3.
+7. $ python3 -m twine upload dist/*
+8. Use a nice conda env
+9. $ python3 -m pip install torricelli
+10. Enjoy:
+$ python3 -m Torricelli
+_________________________________________________________-
+Useful links:
+https://packaging.python.org/tutorials/packaging-projects/
+https://stackoverflow.com/questions/44977227/how-to-configure-main-py-init-py-and-setup-py-for-a-basic-package
