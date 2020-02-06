@@ -20,7 +20,7 @@ $ python3 -m Torricelli
 
 ========== Then publish your release ! ==========
 Repeat steps 1. to 3.
-7. Make sure the version number in setup.py and Torricelli/torricelli.py are the same!
+7. Make sure the version number in setup.py AND torricelli.py ANdD Manual are the same!
 8. $ python3 -m twine upload dist/*
 9. Use a nice conda env
 10. $ python3 -m pip install torricelli

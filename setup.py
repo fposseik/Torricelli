@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="torricelli",
-    version="4.0.1",
+    version="4.0.2",
     author="Francois C. Bocquet",
     author_email="f.posseik@fz-juelich.de",
     long_description=long_description,
