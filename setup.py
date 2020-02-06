@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="torricelli-fposseikkd", # Replace with your own username
+    name="torricelli-fposseikksdd", # Replace with your own username
     version="4.0.1",
     author="Example Author",
     author_email="f.posseik@fz-juelich.de",
@@ -13,7 +13,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/fposseik/Torricelli",
-    packages=['', "torricelli"],
+    packages=["Torricelli"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -22,7 +22,7 @@ setuptools.setup(
     python_requires='~=3.7',
     package_data={
         "" : ['*.py'],
-        "torricelli": ['*.py',
+        "Torricelli": ['*.py',
                        "imports/*.py", "imports/*.png",
                        "imports/Databases/*.txt", 'imports/Databases/*.csv', 'imports/Databases/*.ini',
                        'imports/Databases/DW/*.csv',

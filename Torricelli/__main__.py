@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication
-from torricelli.Torricelli import Torricelli
+from Torricelli import Torricelli
 
 app = QApplication(sys.argv)
 myapp = Torricelli()

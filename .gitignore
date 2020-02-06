@@ -1,5 +1,5 @@
 # Project specific:
-imports/user_settings
+Torricelli/imports/user_settings
 
 # emacs ignore files
 *.~
