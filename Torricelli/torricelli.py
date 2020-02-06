@@ -5018,7 +5018,7 @@ class Torricelli(QMainWindow):
         except (IOError, ValueError) as e:
             print(
                 e,
-                '\nEither your \"user_settings\" files does not exist yet, of the format is too old. A new file is created'
+                '\nEither your \"user_settings\" files does not exist yet, or the format is too old. A new file is created'
             )
             self.ui.LineEdit_CurrentWorkingDirectory.setText(
                 'SET THE WORKING DIRECTORY !!! AS WELL AS \u03BE AND \u03B2')
