@@ -1,3 +1,5 @@
 Z_A,Z_B,Name,cell_type,a,b,c,alpha,beta,gamma,checked_values
 14,6,6H-SiC,HEX Wurtzite,308.129,308.129,1511.976,90.0,90.0,120.0,yes
-83,34,Bi2Se3,HEX Tetradymite,414.3,414.3,2863.6,90.0,90.0,120.0,yes
+83,34,Bi2Se3_Nakajima1963,HEX Tetradymite_Nakajima1963,414.3,414.3,2863.6,90.0,90.0,120.0,yes
+83,34,Bi2Se3_Vicente1999,HEX Tetradymite_Vicente1999,413.55,413.55,2861.5,90.0,90.0,120.0,yes
+
