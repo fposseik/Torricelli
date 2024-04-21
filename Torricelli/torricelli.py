@@ -1,10 +1,10 @@
 # python3
 # -*- coding: utf-8 -*-
 
-#    Copyright © 2010 Giuseppe Mercurio
-#    Copyright © 2013-2024 Francois C. Bocquet
-#    Copyright © 2014-2018 Markus Franke
-#    Copyright © 2019 Xiaosheng Yang
+#    Copyright (c) 2010 Giuseppe Mercurio
+#    Copyright (c) 2013-2024 Francois C. Bocquet
+#    Copyright (c) 2014-2018 Markus Franke
+#    Copyright (c) 2019 Xiaosheng Yang
 #    This file is part of Torricelli.
 #
 #    Torricelli is free software: you can redistribute it and/or modify
@@ -25,13 +25,15 @@ __version__ = '4.1.0'
 # scientific packages
 import scipy as sp
 import numpy as np
-import cmath
+import cmath, sys, os
 import scipy.optimize
 from scipy import interpolate
 from scipy import constants
 from scipy.interpolate import splrep, sproot
 from scipy.stats import norm as scipy_norm
 import lmfit
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+    os.chdir(sys._MEIPASS) # Necessary for pyInstaller
 
 # GUI and plotting
 import pyqtgraph as pg
