@@ -20,7 +20,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with Torricelli.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = '4.0.2'
+__version__ = '4.1.0'
 
 # scientific packages
 import scipy as sp
