@@ -1,6 +1,5 @@
 ===== Verified crystallographic values  =====
-- 6H-SiC: Bauer et al. Phys. Rev. B 57, 2647 (1998)
-- 4H-SiC: Bauer et al. Acta Cryst. A57, 60 (2001)
+- 4H-SiC and 6H-SiC: Bauer et al. Phys. Rev. B 57, 2647 (1998)
 - Au:
 - Ag:
 - Cu:
