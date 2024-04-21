@@ -1115,20 +1115,18 @@ class Torricelli(QMainWindow):
             if refl_plus_cr > 0 and refl_plus_cr < 1:  # choose the branch that has a physically meaningful reflectivity.
                 self.Theory_Refl_sample[i] = refl_plus_cr
                 self.Theory_Phase_Sample[i] = phi_plus_cr
-                #print("PLU: ph.E: {:6.2f} | *refl_plus_cr: {:8.2f} | refl_minus_cr: {:8.2f} | *phi_plus_cr: {:8.2f} | phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr,refl_minus_cr,phi_plus_cr,phi_minus_cr))
 
-                ### NEW
                 if np.real(EH_over_EO_plus_cr) < 0 and self.ui.radioButton_sigma_pol_light.isChecked():  # from Zegenhagen 1993 Eq. 2.10, 2.11
                     self.Theory_Phase_Sample[i] += np.pi
                 # Taking change of sign in real(EH/E0) into account due to the change of sign in the polarization factor when using pi-polarization
                 elif np.real(EH_over_EO_plus_cr) > 0 and self.ui.radioButton_pi_pol_light.isChecked():
                     self.Theory_Phase_Sample[i] += np.pi
-                    #print("PLU: ph.E: {:6.2f} | refl_plus_cr: {:8.2f} | *refl_minus_cr: {:8.2f} | phi_plus_cr: {:8.2f} | *phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr + np.pi, phi_minus_cr + np.pi))
-                ### end NEW
-
-                #print("PLU: ph.E: {:6.2f} | *refl_plus_cr: {:8.2f} | refl_minus_cr: {:8.2f} | *phi_plus_cr: {:8.2f} | phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr,refl_minus_cr,phi_plus_cr,phi_minus_cr))
+                    #print("PLU+pi: {:6.2f} eV | *refl_plus: {:8.2f} | refl_minus: {:8.2f} | *phi_plus: {:8.2f} | phi_minus: {:8.2f} | R(EH_over_EO_plus) {:8.8f}".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr + np.pi, phi_minus_cr + np.pi, np.real(EH_over_EO_plus_cr)))
+                else:
+                    pass
+                    #print("PLU:    {:6.2f} eV | *refl_plus: {:8.2f} | refl_minus: {:8.2f} | *phi_plus: {:8.2f} | phi_minus: {:8.2f} | R(EH_over_EO_plus) {:8.8f}".format(self.Theory_photonEnergy[i], refl_plus_cr,refl_minus_cr,phi_plus_cr,phi_minus_cr, np.real(EH_over_EO_plus_cr)))
                 
-            else:
+            else: # Go for minus branch
                 self.Theory_Refl_sample[i] = refl_minus_cr
                 self.Theory_Phase_Sample[i] = phi_minus_cr
 
@@ -1137,47 +1135,10 @@ class Torricelli(QMainWindow):
                 # Taking change of sign in real(EH/E0) into account due to the change of sign in the polarization factor when using pi-polarization
                 elif np.real(EH_over_EO_minus_cr) > 0 and self.ui.radioButton_pi_pol_light.isChecked():
                     self.Theory_Phase_Sample[i] += np.pi
-                    #print("MIN: ph.E: {:6.2f} | refl_plus_cr: {:8.2f} | *refl_minus_cr: {:8.2f} | phi_plus_cr: {:8.2f} | *phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr + np.pi, phi_minus_cr + np.pi))
+                    #print("MIN+pi: {:6.2f} eV | refl_plus: {:8.2f} | *refl_minus: {:8.2f} | phi_plus: {:8.2f} | *phi_minus: {:8.2f} | R(EH_over_EO_minus) {:8.8f}".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr + np.pi, phi_minus_cr + np.pi, np.real(EH_over_EO_minus_cr)))
                 else:
                     pass
-                    #print("ph.E: {:6.2f} | refl_plus_cr: {:8.2f} | *refl_minus_cr: {:8.2f} | phi_plus_cr: {:8.2f} | *phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr, phi_minus_cr))
-
-            # if np.real(EH_over_EO_minus_cr) < 0 and self.ui.radioButton_sigma_pol_light.isChecked(): # from Zegenhagen 1993 Eq. 2.10, 2.11
-            #     phi_plus_cr += np.pi
-            #     phi_minus_cr += np.pi
-            # # Taking change of sign in real(EH/E0) into account due to the change of sign in the polarization factor when using pi-polarization
-            # elif np.real(EH_over_EO_minus_cr) > 0 and self.ui.radioButton_pi_pol_light.isChecked():
-            #     phi_plus_cr += np.pi
-            #     phi_minus_cr += np.pi
-            #
-            #
-            # if phi_plus_cr>0 and phi_plus_cr<np.pi/2: # choose the branch that has a physically meaningful reflectivity.
-            #     self.Theory_Refl_sample[i]  = refl_plus_cr
-            #     self.Theory_Phase_Sample[i] = phi_plus_cr
-            #     print("ph.E: {:6.2f} | *refl_plus_cr: {:8.2f} | refl_minus_cr: {:8.2f} | *phi_plus_cr: {:8.2f} | phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr,refl_minus_cr,phi_plus_cr,phi_minus_cr))
-            # else:
-            #     self.Theory_Refl_sample[i]  = refl_minus_cr
-            #     self.Theory_Phase_Sample[i] = phi_minus_cr
-            #     print("ph.E: {:6.2f} | refl_plus_cr: {:8.2f} | *refl_minus_cr: {:8.2f} | phi_plus_cr: {:8.2f} | *phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr, phi_minus_cr))
-
-            # ORIGINAL
-            # if refl_plus_cr>0 and refl_plus_cr<1: # choose the branch that has a physically meaningful reflectivity.
-            #     self.Theory_Refl_sample[i]  = refl_plus_cr
-            #     self.Theory_Phase_Sample[i] = phi_plus_cr
-            #     print("ph.E: {:6.2f} | *refl_plus_cr: {:8.2f} | refl_minus_cr: {:8.2f} | *phi_plus_cr: {:8.2f} | phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr,refl_minus_cr,phi_plus_cr,phi_minus_cr))
-            # else:
-            #     self.Theory_Refl_sample[i]  = refl_minus_cr
-            #     self.Theory_Phase_Sample[i] = phi_minus_cr
-            #
-            #     if np.real(EH_over_EO_minus_cr) < 0 and self.ui.radioButton_sigma_pol_light.isChecked(): # from Zegenhagen 1993 Eq. 2.10, 2.11
-            #         self.Theory_Phase_Sample[i] += np.pi
-            #     # Taking change of sign in real(EH/E0) into account due to the change of sign in the polarization factor when using pi-polarization
-            #     elif np.real(EH_over_EO_minus_cr) > 0 and self.ui.radioButton_pi_pol_light.isChecked():
-            #        self.Theory_Phase_Sample[i] += np.pi
-            #        print("ph.E: {:6.2f} | refl_plus_cr: {:8.2f} | *refl_minus_cr: {:8.2f} | phi_plus_cr: {:8.2f} | *phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr + np.pi, phi_minus_cr + np.pi))
-            #     else:
-            #        pass
-            #        print("ph.E: {:6.2f} | refl_plus_cr: {:8.2f} | *refl_minus_cr: {:8.2f} | phi_plus_cr: {:8.2f} | *phi_minus_cr: {:8.2f} ".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr, phi_minus_cr))
+                    #print("MIN:    {:6.2f} eV | refl_plus: {:8.2f} | *refl_minus: {:8.2f} | phi_plus: {:8.2f} | *phi_minus: {:8.2f}  | R(EH_over_EO_minus) {:8.8f}".format(self.Theory_photonEnergy[i], refl_plus_cr, refl_minus_cr, phi_plus_cr, phi_minus_cr, np.real(EH_over_EO_minus_cr)))
 
             ## monochromator:
             EH_over_EO_plus_mo = -1 * (P_DCM / np.absolute(P_DCM)) * (
