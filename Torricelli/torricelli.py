@@ -1,10 +1,10 @@
 # python3
 # -*- coding: utf-8 -*-
 
-#    Copyright Â© 2010 Giuseppe Mercurio
-#    Copyright Â© 2013-2020 Francois C. Bocquet
-#    Copyright Â© 2014-2018 Markus Franke
-#    Copyright Â© 2019 Xiaosheng Yang
+#    Copyright © 2010 Giuseppe Mercurio
+#    Copyright © 2013-2024 Francois C. Bocquet
+#    Copyright © 2014-2018 Markus Franke
+#    Copyright © 2019 Xiaosheng Yang
 #    This file is part of Torricelli.
 #
 #    Torricelli is free software: you can redistribute it and/or modify
