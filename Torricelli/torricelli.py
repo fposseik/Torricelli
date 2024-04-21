@@ -1075,11 +1075,11 @@ class Torricelli(QMainWindow):
 
         gamma_cr = (sp.constants.value('classical electron radius') * 1e10 *
                     lambda_bragg**2) / (
-                        sp.pi * vol_unit_cell)
+                        np.pi * vol_unit_cell)
         theta_bragg_mo = np.lib.scimath.arcsin(lambda_bragg / (2 * d_hkl_DCM))
         gamma_mo = (sp.constants.value('classical electron radius') * 1e10 *
                     lambda_bragg**2) / (
-                        sp.pi * vol_unit_cell_DCM)
+                        np.pi * vol_unit_cell_DCM)
 
         # the minimum and the maximum values of this energy interval could be reduced in order to speed up the calculation, provided that it´s always bigger than the experimental energy range
         x_min = -self.ui.doubleSpinBox_theoReflRange.value()
@@ -1374,7 +1374,7 @@ class Torricelli(QMainWindow):
             Lambda_hkl = 2.0 * d_hkl * np.sin(
                 self.ui.doubleSpinBox_theta.value() * np.pi / 180)  # in Ang
             E_bragg = sp.constants.value(
-                'Planck constant in eV s') * sp.constants.value(
+                'Planck constant in eV/Hz') * sp.constants.value(
                     'speed of light in vacuum') / (Lambda_hkl * 1e-10)  # eV
 
         # According to Peng et al. Acta Cryst. (1996). A52, 456-470 the Debye-Waller correction to F_H is exp(-B*s**2)
@@ -2049,10 +2049,10 @@ class Torricelli(QMainWindow):
 
     ## One of the slider has been moved by the user, then display is then updated
     def EY_initSpin_valueChanged(self, who):
-        if who is 'fc':
+        if who == 'fc':
             self.ui.horizontalSlider_manual_fc.setValue(
                 self.ui.doubleSpinBox_fc.value() * 1000.)
-        elif who is 'pc':
+        elif who == 'pc':
             self.ui.horizontalSlider_manual_pc.setValue(
                 self.ui.doubleSpinBox_pc.value() * 1000.)
         else:
@@ -2238,7 +2238,7 @@ class Torricelli(QMainWindow):
     # Check Mercurio et al. Phys. Rev. B vol88, p 045421 (2013) for more details
     def fit_ElYield(self):
         if self.ui.doubleSpinBox_ReflFit_de.value(
-        ) is 0 or self.ui.doubleSpinBox_ReflFit_sigma.value() is 0:
+        ) == 0 or self.ui.doubleSpinBox_ReflFit_sigma.value() == 0:
             QMessageBox.warning(self, "Information",
                                 "You forgot to fit the reflectivity!")
             return
@@ -3294,7 +3294,7 @@ class Torricelli(QMainWindow):
                 self.ui.LineEdit_CurrentWorkingDirectory.text(),
                 "EY fit results(*.log);; All (*)")
             for dataset_name in dataset_names:
-                if dataset_name is not '':
+                if dataset_name != '':
                     try:
                         with open(dataset_name, 'r') as log_file:
                             lastLine = log_file.readlines()[-1]
