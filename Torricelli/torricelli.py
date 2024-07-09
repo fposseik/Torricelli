@@ -923,7 +923,7 @@ class Torricelli(QMainWindow):
                 'QLabel {color:red}')
 
         self.ui.comboBox_Sample_Compound_DWMethod.clear()
-        if element == '6H-SiC':
+        if (element == '6H-SiC') or (element == '4H-SiC'):
             self.ui.comboBox_Sample_Compound_DWMethod.addItem('Zywietz')
         self.ui.comboBox_Sample_Compound_DWMethod.addItem('None')
 
