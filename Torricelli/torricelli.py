@@ -20,7 +20,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with Torricelli.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = '4.1.0'
+__version__ = '4.1.1'
 
 # scientific packages
 import scipy as sp
@@ -56,7 +56,8 @@ import datetime
 import glob  # for fancy pathname handeling
 
 # miscellaneous
-from distutils.version import StrictVersion
+from distutils.version import StrictVersion ## deprecated
+#from packaging.version import StrictVersion
 import sip  # includes C++ libaries
 from operator import itemgetter
 import ast
@@ -3407,10 +3408,10 @@ class Torricelli(QMainWindow):
                                                    symb=str(point.text(self.Argand_col['Symbol'])), \
                                                    ident=id(point))
 
-                    progressBarGROUP.setValue(
-                        float((i + 1)) / child_count * 100)
-                    progressBarCHILD.setValue(
-                        float((j + 1)) / gp_children * 100)
+                    #progressBarGROUP.setValue(
+                    #    float((i + 1)) / child_count * 100)
+                    #progressBarCHILD.setValue(
+                    #    float((j + 1)) / gp_children * 100)
                     # old but gold:
                     #self.ui.statusbar.showMessage("PLOTTING - "+self.progressBar(i+1,child_count,50,prefix="Groups: ")+"   "+self.progressBar(j+1,gp_children,50,prefix="Datapoints of group: "), 20000)
 
@@ -4178,8 +4179,8 @@ class Torricelli(QMainWindow):
                         # progressBar for long files
                         # remember i starts with 0 and and one comment and one header line is skipped
                         # so you need i+3 for the progressBar
-                        progressBarLOADING.setValue(
-                            float(i + 3) / total_lines * 100)
+                        #progressBarLOADING.setValue(
+                        #    float(i + 3) / total_lines * 100)
 
                         if 'Group' == row['Type']:
                             dic_group = self.Argand_default_group_dictionary.copy(
