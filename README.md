@@ -2,6 +2,7 @@
 A software to determine atomic spatial distribution from normal incidence x-ray standing wave data
 
 ### Installation
+Install miniforge https://conda-forge.org/download/
 To install the newest version of Torricelli:
 conda create -n NIXSW	#Creates an virtual environment
 conda activate NIXSW
