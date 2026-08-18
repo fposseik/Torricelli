@@ -1,0 +1,13 @@
+To install the newest version of Torricelli:
+conda create -n NIXSW	#Creates an virtual environment
+conda activate NIXSW
+conda install python=3.11	
+conda install matplotlib
+conda install PyQt5
+
+pip install torricelli
+
+navigate in the torricelli folder
+
+python torricelli.py
+-> Torricelli works :)
